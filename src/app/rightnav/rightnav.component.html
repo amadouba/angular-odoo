@@ -1,0 +1,14 @@
+
+<mat-sidenav class="example-sidenav"  disableClose opened mode="side" position="end"
+            [fixedInViewport]="true" [fixedTopGap]="300"
+            >
+    <ul>
+            <li *ngFor="let item of list | async "><a href="{{cur}}#{{item.id}}" >{{item.name}}</a></li>
+
+    </ul>
+</mat-sidenav>
+
+
+    <span class="space"></span>
+    
+

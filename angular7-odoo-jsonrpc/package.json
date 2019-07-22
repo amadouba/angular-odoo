@@ -1,0 +1,67 @@
+{
+  "_from": "angular7-odoo-jsonrpc",
+  "_id": "angular7-odoo-jsonrpc@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-tYwSgg/yvElG4bQn/sp6ihZGQLCpjKP1+ZjL4KdMMUI3eal2s/edtbTQ1ZHiKil2SKoLMqPq4lDupbpRFJClgw==",
+  "_location": "/angular7-odoo-jsonrpc",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "angular7-odoo-jsonrpc",
+    "name": "angular7-odoo-jsonrpc",
+    "escapedName": "angular7-odoo-jsonrpc",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular7-odoo-jsonrpc/-/angular7-odoo-jsonrpc-1.0.3.tgz",
+  "_shasum": "bc24ffcfe9b526972d1046c20a216073ac826547",
+  "_spec": "angular7-odoo-jsonrpc",
+  "_where": "/home/amadou",
+  "author": {
+    "name": "Alfredo Rodríguez",
+    "email": "wbison3@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/astronaut1712/angular2-odoo-jsonrpc/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@angular/common": "~7.0.0",
+    "@angular/compiler": "~7.0.0",
+    "@angular/core": "~7.0.0",
+    "@angular/platform-browser": "~7.0.0",
+    "rxjs": "~6.3.3",
+    "zone.js": "~0.8.26"
+  },
+  "deprecated": false,
+  "description": "Odoo JsonRPC Service for Angular 7",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.1.7",
+    "typescript": "~3.1.1"
+  },
+  "homepage": "https://github.com/astronaut1712/angular2-odoo-jsonrpc#readme",
+  "keywords": [
+    "odoo",
+    "angular",
+    "jsonrpc",
+    "angular7"
+  ],
+  "license": "UNLICENSED",
+  "main": "odoorpc.service.js",
+  "name": "angular7-odoo-jsonrpc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbison3/angular7-odoo-jsonrpc.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.3"
+}

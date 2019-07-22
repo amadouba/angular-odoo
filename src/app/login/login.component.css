@@ -1,0 +1,30 @@
+.example-form{
+    /* display:flex; */
+    /* flex-direction:column; */
+}
+
+mat-dialog-actions {
+    display:flex;
+    /* flex-direction: column; */
+    flex-wrap: nowrap;
+
+  }
+
+  .loginErr{
+    max-width: 400px;
+    max-height: 5em;
+
+   
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+  }
+
+  .loginErr:hover {
+    overflow: visible;
+     
+    overflow-wrap: break-word; 
+    word-wrap: break-word;
+  }
+
+  

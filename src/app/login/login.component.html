@@ -1,0 +1,113 @@
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+    <span>My First App</span>
+        <span class="example-fill-remaining-space"></span>
+        <span class="align-center"></span>
+        <span class="example-spacer"></span>
+        <button mat-button>About</button>
+        <button mat-button>Contact</button>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voicemail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+     </mat-toolbar-row> -->
+
+<h2 mat-dialog-title>Login</h2>
+<form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+<mat-dialog-content>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td> 
+               <!-- Odoo Server address -->
+              <mat-form-field class="example-full-width">
+                <!-- <mat-label>Odoo Server</mat-label> -->
+                <input matInput placeholder="Odoo Server" formControlName="odoo_server" name="username" [matAutocomplete]="auto"   required>
+                <mat-autocomplete #auto="matAutocomplete" >
+                    <mat-option *ngFor="let adress of addr"  [value]="adress">{{adress}}</mat-option>
+                </mat-autocomplete>
+                <mat-error *ngIf="loginForm.get('odoo_server').invalid">{{getErrorMessage("odoo_server")}}</mat-error>
+
+              </mat-form-field></td></tr>
+          <tr>
+            <td>
+              <mat-form-field hintLabel="optional" class="example-full-width">
+                <!-- HTTP AUTH OPTIONAL -->
+                <input matInput placeholder="http_auth" formControlName="http_auth" name="http_auth" [errorStateMatcher]="matcher" >
+              </mat-form-field>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Database Name" formControlName="db" name="db"   required>
+                <mat-error *ngIf="loginForm.get('db').invalid">{{getErrorMessage("db")}}</mat-error>
+
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="email" type="email" formControlName="email" name="email"  required>
+                <mat-error *ngIf="loginForm.get('email').invalid">{{getErrorMessage("email")}}</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" [type]="hide ?  'password' : 'text' " formControlName="pwd" [errorStateMatcher]="matcher">
+                <button mat-icon-button matSuffix (click)="hide = !hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+           
+   
+
+
+</mat-dialog-content>
+
+<!-- <mat-form-field>
+    
+  </mat-form-field> -->
+
+<!-- <mat-form-field>
+    
+  </mat-form-field> -->
+
+<!-- <mat-form-field>
+    
+  </mat-form-field> -->
+<!-- Bottom part of the card -->
+<mat-dialog-actions align="end" >
+ 
+      <mat-error  class="loginErr" *ngIf="showLoginError">{{!showLoginError.title ? showLoginError : showLoginError.title  }} : {{showLoginError.message}}</mat-error>
+      <button mat-flat-button mat-dialog-close>Cancel</button>
+
+      <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+      <button mat-button [disabled]="loginForm.invalid" color="primary" type="submit">Login</button>
+   
+
+</mat-dialog-actions>
+
+</form>

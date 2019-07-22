@@ -1,0 +1,28 @@
+<mat-sidenav role="directory" class="example-sidenav" disableClose opened mode="side">
+
+<mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <!-- <button mat-button> -->
+            <mat-panel-title>
+                Reports
+            </mat-panel-title>
+          <!-- </button> -->
+        </mat-expansion-panel-header>
+        <ul class="report-models">
+          
+            <li (click)="clicked = 'Courses'"><a> Courses </a>  </li>     
+            <li (click)="clicked = 'Sessions'"><a > Sessions </a>  </li>     
+
+           
+            
+        </ul>
+      </mat-expansion-panel> 
+      <mat-divider></mat-divider>
+
+     <!-- <button mat-button class="docs-nav-content-btn" cdkaccordionitem="" expanded="true" aria-label="Navigation, section toggle" aria-controls="panel-nav" 
+              aria-expanded="true"> Navigation 
+              <mat-icon class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">keyboard_arrow_up</mat-icon></button>
+       -->
+              
+   
+</mat-sidenav>

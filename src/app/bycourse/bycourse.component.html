@@ -1,0 +1,15 @@
+<h3>Sessions</h3>
+<ng-container *ngIf="(sessions | async) === null">
+    Loading ...
+</ng-container>                   
+                <mat-list>
+                  <mat-list-item *ngFor="let session of sessions | async">
+                            <h4 matLine> {{session.name}} </h4>
+                           <p class = "subsesh" matLine>
+                           <span class="duration"> From {{session.start_date}} to {{session.end_date}} </span>
+                           <span class="instructor"> By {{session.instructor_id[1]}}</span>
+                            </p>
+                  </mat-list-item>
+                </mat-list>
+                            
+                        

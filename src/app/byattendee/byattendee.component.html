@@ -1,0 +1,28 @@
+<ng-container *ngIf="(sessions | async) === null">
+        Loading...
+</ng-container>
+
+<mat-accordion multi = "true">
+        <mat-expansion-panel  *ngFor="let sesh of sessions | async" (opened)="open(sesh.attendee_ids)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h4>{{sesh.name}}</h4>
+              </mat-panel-title>
+              <mat-panel-description>
+            <span class = "instructor">  By {{sesh.instructor_id[1]}}</span>  <span> From {{sesh.start_date}} to {{sesh.end_date}} </span>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+          
+            <ng-template matExpansionPanelContent >
+              <h4>Attendees:</h4>
+                <ul >
+                    <li *ngFor="let att of attendees | async ">
+                        {{att.name}}
+                        </li>
+                </ul>
+            </ng-template>
+          
+          </mat-expansion-panel>
+</mat-accordion>
+
+<rightnav [list]="sessions"></rightnav>

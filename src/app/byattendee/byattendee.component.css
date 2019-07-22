@@ -1,0 +1,15 @@
+li{
+    list-style-type: none;
+}
+
+mat-panel-description{
+    line-height: 4em;
+}
+mat-panel-title{
+    width:220px;
+}
+
+.instructor{
+    padding-right: 40px;
+    width:200px
+}

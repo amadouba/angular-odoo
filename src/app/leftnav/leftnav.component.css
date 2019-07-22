@@ -1,0 +1,61 @@
+.example-container {
+    position: absolute;
+    top: 160px;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-sidenav {
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center; */
+
+    width: 200px;
+    margin: 110px 10px 100px 15px;
+    border: 1px solid rgba(0,0,0,0.12);
+    /* background: #eee; */
+
+  }
+
+  .report-models{
+    list-style-type: none;
+    
+  }
+  li {
+    cursor:pointer;
+    font-weight: 600;
+
+  }
+  li:hover {
+    color:rgb(63, 81, 181);
+  }
+  ul{
+    /* padding:5px 15px 5px 20px; */
+    padding:0px;
+    
+    margin: 0px;
+  }
+
+  mat-expansion-panel-header{
+    box-sizing: border-box;
+    height:48px !important;
+    display: flex;  
+    align-items: flex-start;
+    margin:0px;
+    padding: 10px 15px;
+    font-family: Arial ;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    margin: 0;
+    font-size: 13px;
+    position: relative;
+    
+    text-align: left;
+    border:none;
+    
+  }
+  .mat-expansion-panel-body{
+    padding:0px !important;
+  }

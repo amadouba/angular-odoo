@@ -1,0 +1,30 @@
+<ng-container *ngIf="(instructors | async) === null">
+        Loading...
+</ng-container>
+
+
+<mat-accordion >
+        <mat-expansion-panel   *ngFor="let inst of instructors | async" (opened)="open(inst.sesh_ids)"  >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h4>{{inst.name}}</h4>
+              </mat-panel-title>
+              <mat-panel-description>
+                  Sessions
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+          
+            <ng-template matExpansionPanelContent >
+              
+                <ul >
+                      
+                    <li *ngFor="let s of session | async">
+                        {{s.name}}
+                        </li>
+                </ul>
+            </ng-template>
+          
+          </mat-expansion-panel>
+</mat-accordion>
+
+<rightnav [list]="instructors"></rightnav>

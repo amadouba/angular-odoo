@@ -1,0 +1,68 @@
+.example-container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0;
+    margin:0px;
+    padding:0px;
+    /* margin-left:200px;
+    margin-top: 110px; */
+    word-break: break-all;
+    /* padding-left: 40px;
+    padding-top: 10px; */
+  }
+  
+  .component-title{
+    float:left;
+    font-weight: bold;
+      font-size: 1.75em;
+      font-family: Arial;
+      color:white
+  }
+  
+  .clearfix{
+    overflow: auto;
+    line-height: 4em;
+    /* text-align: center; */
+    
+  }
+  .example-sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    background: #eee;
+  }
+
+  /* mat-drawer-content{
+    position: absolute;
+    top: 160px;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+  } */
+
+  .component-header{
+    position: relative;
+    /* display: flex; */
+    /* -webkit-box-align: center; */
+    /* align-items: center; */
+    background-color: #3f51b5;
+    padding-left: 20px;
+    height:75px;
+
+  }
+  nav{
+    margin-left: 250px;
+
+  }
+ 
+  .component-cont{
+    width:800px;
+    margin-left: 250px;
+  }
+  .tab-body{
+    width: 800px;
+  }
+

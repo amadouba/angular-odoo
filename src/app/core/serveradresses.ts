@@ -1,0 +1,1 @@
+export const ADDRESSES : string[] = ['http://localhost:8069'];

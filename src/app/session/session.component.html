@@ -1,0 +1,25 @@
+
+<nav mat-tab-nav-bar   >
+        <a mat-tab-link 
+        (click)="activeLink = ''"
+        [active]="activeLink == ''" disabled >  </a>
+
+        <a mat-tab-link 
+        (click)="activeLink = lnk = 'attendee'"
+        [active]="activeLink == 'attendee'" > By Attendees </a>
+
+        <a mat-tab-link 
+        (click)="activeLink = lnk = 'instructor'"
+        [active]="activeLink == 'instructor'"> By Instructors </a>
+      
+</nav>        
+
+<!-- <ng-container *ngIf="(asyncTabs | async) === null">
+        Loading tabs...
+</ng-container> -->
+
+<session-list *ngIf="(lnk == null)"></session-list>
+
+<byattendee *ngIf="lnk == 'attendee'"></byattendee>
+
+<byinstructor *ngIf="lnk == 'instructor'"></byinstructor>
