@@ -9,7 +9,9 @@ mat-dialog-actions {
     flex-wrap: nowrap;
 
   }
-
+input{
+  /* background-color: bisque; */
+}
   .loginErr{
     max-width: 400px;
     max-height: 5em;

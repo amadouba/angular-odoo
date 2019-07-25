@@ -1,0 +1,57 @@
+mat-toolbar{
+    display: flex;
+   flex-direction: row;
+   height: 75px; 
+   
+}
+
+
+
+
+.subhead{
+ background-color: red !important;
+ height: 85px; 
+
+
+}
+.title{
+   flex: 1 1 auto;
+   text-align: center; 
+}
+.logoutBtn{
+   width: 3.5cm;  
+   height:50px;
+   /* flex-basis: content; */
+   text-align: center;
+     font-size: 1em;
+     padding-top:8px ;
+
+
+
+}
+
+
+
+.logout{
+ /* width: 5cm;   */
+ /* flex-basis: content; */
+ /* text-align: center; */
+
+}
+
+
+
+ 
+ .example-header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+ }
+ 
+ .example-footer {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+ }

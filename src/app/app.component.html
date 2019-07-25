@@ -1,36 +1,5 @@
-
-<ng-container >
-  <mat-card  *ngIf="!isAuthenticated">
-    <mat-card-content class = "clearfix"> 
-      <span class="loginTitle">{{title}}</span>
-      <button class="loginBtn" mat-button (click)="login($event)" color="primary">Login</button>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-toolbar *ngIf="isAuthenticated"   class="mat-elevation-z6" color="primary">
-      <mat-toolbar-row class="toolbar ">
-          <span  class="username"></span>
-
-          <span class="title" >{{title}}</span>
-  
-          <a mat-button  (click)="onLogout()" class="logoutBtn" routerLink="."><span class="logout">Logout</span></a>
-       
-      </mat-toolbar-row>
-        
-      <mat-toolbar-row class="subhead">
-             <span  class="username">{{username}}</span>
-
-      </mat-toolbar-row>
-  
-  </mat-toolbar>
-
-  <!-- <div class="component-viewer"> -->
-
-  <app-user  *ngIf="isAuthenticated" 
-         
-            (loggedOut)="onLoggedOut($event)" ></app-user>
-            
-            <router-outlet></router-outlet>
+           
+     <router-outlet></router-outlet>
 
 
         <!-- </div> -->
@@ -40,7 +9,9 @@
   <mat-toolbar-row>
   <span>My First App</span>
       <span class="example-fill-remaining-space"></span>
-      <span class="align-center"></span>
+      
+   
+   <span class="align-center"></span>
       <span class="example-spacer"></span>
       <button mat-button>About</button>
       <button mat-button>Contact</button>
@@ -63,4 +34,3 @@
   </mat-menu>
    </mat-toolbar-row> -->
   <!-- <mat-toolbar class="example-footer">Footer</mat-toolbar> -->
-</ng-container>

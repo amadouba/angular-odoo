@@ -2,11 +2,12 @@ import { Component, OnInit, Input, EventEmitter, Output, SimpleChange } from '@a
 import {Router} from '@angular/router';
 import {OdooRPCService} from '/home/amadou/angular/angular-odoo/angular7-odoo-jsonrpc' ;
 import { MatDialog } from '@angular/material';
-import { LoginComponent } from './login/login.component';
-import {RightnavComponent} from './rightnav/rightnav.component';
-import {LeftnavComponent} from './leftnav/leftnav.component';
-import { UserService } from './user.service';
+import { LoginComponent } from './components/login/login/login.component';
+import {RightnavComponent} from './components/navigation/rightnav/rightnav.component';
+import {LeftnavComponent} from './components/navigation/leftnav/leftnav.component';
+import { UserService } from './_services/user.service';
 import { VirtualTimeScheduler } from 'rxjs';
+import {title} from "./app-data";
 
 
 
@@ -17,18 +18,17 @@ import { VirtualTimeScheduler } from 'rxjs';
  
 })
 export class AppComponent implements OnInit {
-  title = 'angular-odoo';
+  title = title;
   @Input() isAuthenticated :boolean;
 
   auth :boolean ;
 
-  username:string = "";
   
  
 
   
 
-  constructor(private router: Router, private dialog:MatDialog, private odooRPC: OdooRPCService, private usr:UserService){
+  constructor( private odooRPC: OdooRPCService, private usr:UserService){
     
     
     
@@ -48,10 +48,6 @@ export class AppComponent implements OnInit {
     // console.log(this.usr.loginState);
     // console.log(localStorage.getItem('user'));
     // console.log(this.usr.contex());
-    if (localStorage.getItem("user")){
-      this.isAuthenticated = true;
-      this.router.navigate(["home"]);
-    }
     
     // this.isAuthenticated = this.usr.loginState;
     // if(this.isAuthenticated){
@@ -89,29 +85,13 @@ export class AppComponent implements OnInit {
 
   }
   
-  login(){
-    this.dialog.open(LoginComponent, {
-      // height: '400px',
-      width: '600px',
-    }).beforeClosed().subscribe(result =>{
-        // result ? (this.isAuthenticated = true ) : '';
-        if (result){
-          this.isAuthenticated = true;
-          this.username = result ;  
-          this.router.navigate(['home']);
-        }
-        
-    });
-  }
+  
 
   onLoggedOut(success:boolean){
     // this.isAuthenticated = success ?  false: true ;  
   }
 
-  onLogout(){
-    this.usr.logout();
-    // this.loggedOut.emit(true);
-  }
+  
 
   
 }

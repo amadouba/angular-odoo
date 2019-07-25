@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormGroupDirective, NgForm} from '@angular/forms';
 import { ErrorStateMatcher, MatDialogRef } from '@angular/material';
-import { UserService } from '../user.service';
+import { UserService } from '../../../_services/user.service';
 import {OdooRPCService} from '/home/amadou/angular/angular-odoo/angular7-odoo-jsonrpc'
-import { ADDRESSES } from '../core/serveradresses';
+import { ADDRESSES } from '../../../core/serveradresses';
 
 
 
@@ -23,7 +23,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  //isAuthenticated:boolean = true;
   hide = true;
   showLoginError  ;
   matcher = new MyErrorStateMatcher();

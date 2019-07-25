@@ -27,6 +27,7 @@ export class UserService implements OnInit{
                 this.loginState = true ;
                 this.username = res.name ;
                 localStorage.setItem("user", JSON.stringify(res));
+                localStorage.setItem("username",this.username);
 
                 return Promise.resolve();
                 
@@ -39,10 +40,15 @@ export class UserService implements OnInit{
              
     }
 
+    getUsername(){
+      return this.username = localStorage.getItem('username');
+    }
+
     logout(){
       this.odooRPC.logout();
       this.loginState = false ;
       localStorage.removeItem('user');
+      localStorage.removeItem('username');
     }
     tryout(){
       return this.odooRPC.isLoggedIn(true);
@@ -56,15 +62,18 @@ export class UserService implements OnInit{
     isLoggedIn(){
       // localStorage.getItem('user') ? true:false;
       let isAuthenticated;
-      this.odooRPC.isLoggedIn(true).then(res =>{
-        !localStorage.getItem('user') ? isAuthenticated = false: (res ? isAuthenticated = true: this.logout());
-         this.loginState = isAuthenticated ;
-        
-      }).catch(err=>{console.log(err);
-        localStorage.getItem('user') ? this.logout():'';
-       isAuthenticated= false;
-       this.loginState = isAuthenticated;
-      });
+      return  this.odooRPC.isLoggedIn(true).then(res =>{
+          !localStorage.getItem('user') ? isAuthenticated = false: (res ? isAuthenticated = true: this.logout());
+          this.loginState = isAuthenticated ;
+          return Promise.resolve(isAuthenticated);
+          
+        }).catch(err=>{console.log(err);
+          localStorage.getItem('user') ? this.logout():'';
+        isAuthenticated= false;
+        this.loginState = isAuthenticated;
+        return Promise.resolve(isAuthenticated);
+
+        });
      
     }
 

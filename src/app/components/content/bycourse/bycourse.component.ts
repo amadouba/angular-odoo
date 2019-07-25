@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FetchData } from '../fetch.data';
+import { FetchData } from '../../../_services/fetch.data';
 import {OdooRPCService} from '/home/amadou/angular/angular-odoo/angular7-odoo-jsonrpc' ;
 import { FromEventTarget } from 'rxjs/internal/observable/fromEvent';
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchData } from '../_services/fetch.data';
+import { FetchData } from '../../../_services/fetch.data';
 import {OdooRPCService} from '/home/amadou/angular/angular-odoo/angular7-odoo-jsonrpc' ;
-import { UserService } from '../_services/user.service';
+import { UserService } from '../../../_services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
