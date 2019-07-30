@@ -23,6 +23,8 @@
         <mat-panel-description>
          {{course.description}}
         </mat-panel-description>
+        <app-edit [model]="model" [recordId]="course.id"> </app-edit>
+
       </mat-expansion-panel-header>
     
       <ng-template matExpansionPanelContent>

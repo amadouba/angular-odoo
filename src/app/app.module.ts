@@ -25,6 +25,9 @@ import { ByattendeeComponent } from './components/content/byattendee/byattendee.
 import { ByinstructorComponent } from './components/content/byinstructor/byinstructor.component';
 import { SessionListComponent } from './components/content/session-list/session-list.component';
 import { LoginPageComponent } from './components/login/login-page/login-page.component';
+import { EditComponent } from './components/edit/edit/edit.component';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 
 
 
@@ -44,6 +47,9 @@ import { LoginPageComponent } from './components/login/login-page/login-page.com
     ByinstructorComponent,
     SessionListComponent,
     LoginPageComponent,
+    EditComponent,
+    DynamicFormComponent,
+    DynamicFormQuestionComponent,
   ],
   imports: [
     BrowserModule, 
@@ -57,6 +63,10 @@ import { LoginPageComponent } from './components/login/login-page/login-page.com
   ],
   entryComponents: [
     LoginComponent,
+    DynamicFormComponent,
+    DynamicFormQuestionComponent,
+
+
   ],
   providers: [HttpClientModule, OdooRPCService],
   bootstrap: [AppComponent]

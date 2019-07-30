@@ -14,6 +14,8 @@ export class ByattendeeComponent implements OnInit {
   // sessionsfetched : [{}]; //session details fetched
   sessions: Promise<any>;
   attendees: Promise<any>;
+  model = "session"
+
   constructor(private fetch: FetchData) { }
 
   ngOnInit() {
@@ -33,7 +35,6 @@ export class ByattendeeComponent implements OnInit {
 
       this.fetch.call('res.partner', 'read',[is], {'fields': ['name']})
     .then(res =>{
-        console.log(res);
 
         this.attendees = Promise.resolve(res);
         // this.sessionsfetched.push(res.records);

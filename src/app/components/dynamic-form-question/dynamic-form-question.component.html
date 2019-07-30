@@ -1,0 +1,33 @@
+<tr>
+    <td>
+      
+          <div [formGroup]="form">
+            
+
+            
+              <div [ngSwitch]="question.controlType">
+
+                <mat-form-field  *ngSwitchCase="'textbox'" appearance="outline">
+                    <mat-label [attr.for]="question.key">{{question.label}}</mat-label>
+
+                    <input matInput [formControlName]="question.key"
+                        [id]="question.key" [type]="question.type">
+                </mat-form-field>
+
+
+                <mat-form-field  *ngSwitchCase="'select'" appearance="outline">
+                    <mat-label [attr.for]="question.key">{{question.label}}</mat-label>
+
+                    <mat-select    [id]="question.key" [formControlName]="question.key" [multiple]="question.type">
+                      <mat-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+              </div> 
+              <!-- <mat-error *ngIf="!isValid">{{question.label}} is required</mat-error> -->
+
+             <!-- <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div> -->
+          </div>
+
+      
+  </td>
+</tr>

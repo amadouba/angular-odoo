@@ -4,6 +4,7 @@
 </ng-container>                   
                 <mat-list>
                   <mat-list-item *ngFor="let session of sessions | async">
+
                             <h4 matLine> {{session.name}} </h4>
                            <p class = "subsesh" matLine>
                            <span class="duration"> From {{session.start_date}} to {{session.end_date}} </span>

@@ -125,8 +125,7 @@ export class OdooRPCService {
 
     public sendRequest(url: string, params: Object): Promise<any> {
         let body = this.buildRequest(url, params);
-        console.log(this.odoo_server + url)
-        console.log(body)
+       
         return this.http.post(this.odoo_server + url, body, {headers: this.headers})
             .toPromise()
             .then(this.handleOdooErrors)
@@ -158,7 +157,6 @@ export class OdooRPCService {
                 });
             }
             $this.context = result.user_context;
-            console.log("ere ", $this.context);
             localStorage.setItem("user_context", JSON.stringify($this.context));
             $this.cookies.set_sessionId(result.session_id);
             return result;

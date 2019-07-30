@@ -15,6 +15,7 @@ import {OdooRPCService} from '/home/amadou/angular/angular-odoo/angular7-odoo-js
 export class ByinstructorComponent implements OnInit {
   instructors : Promise<any>;
   session:Promise<any>;
+  model= "instructor";
   constructor(private fetch:FetchData) { }
 
   ngOnInit() {
