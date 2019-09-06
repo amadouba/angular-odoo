@@ -10,6 +10,7 @@ import { QuestionControlService } from 'src/app/_services/question-control.servi
 import { QuestionService } from 'src/app/_services/build-question.service';
 import { ValidatorFn, FormGroup } from '@angular/forms';
 import { FormPass } from 'src/app/_services/form-pass.service';
+import { ModDataService } from 'src/app/_services/mod-data.service';
 
 
 @Component({
@@ -17,11 +18,13 @@ import { FormPass } from 'src/app/_services/form-pass.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css'],
   providers: [
-    QuestionControlService, FormPass,
+    // [{ provide: FetchData, useExisting: OdooRPCService }],
+    ModDataService,
+    QuestionControlService,
 
-              QuestionValidService,
-              QuestionService
-            ]
+    QuestionValidService,
+    QuestionService
+    ]
 
 })
 export class EditComponent implements OnInit {
@@ -36,44 +39,32 @@ export class EditComponent implements OnInit {
 
   deploy:boolean;
   
-  constructor(private dialog:MatDialog , private qb: QuestionValidService, private qcs: QuestionControlService, private fo:FormPass) { 
-    
+  constructor(private dialog:MatDialog , private qb: QuestionValidService, private qcs: QuestionControlService, private push:ModDataService) { 
+   
   }
 
   ngOnInit() {
   }
 
-  onClick(){
+  onClickEdit(){
     let $this = this;
-
-    // this.qb.getQuestions(this.model, this.recordId)
-    //   .then(( res :  {question: QuestionBase<any>, validators:ValidatorFn[]} [])  =>{
-    //     let form  = $this.qcs.toFormGroup(res)
-    //     this.questions = Promise.resolve(res)
-
-    //      this.fo.form = form
-    //     this.fo.questions = this.questions
-      
-    //     this.deploy = true;
-
-        
-    //   })
-    //   .catch(err=>{
-    //     console.log(err);
-    //     $this.showQuestionError = Promise.resolve(err)
-
-    //   })
 
     
     this.qb.getQuestions(this.model, this.recordId)
       .then(( res :  {question: QuestionBase<any>, validators:ValidatorFn[]} [])  =>{
-        let form  = this.qcs.toFormGroup(res)
+
+        this.form  = this.qcs.toFormGroup(res)
         this.questions = Promise.resolve(res)
-        this.fo.form = form 
-        this.fo.questions = this.questions
+        console.log(this.form)
+        
+        this.push.recordId = this.recordId;
+        this.model = this.push.model;
+        
+
         this.dialog.open(DynamicFormComponent, {
-          width:'800px',
-          data: { ObsQuestions: this.questions, error:$this.showQuestionError, questions: res, form:form },
+            minWidth:'500px',
+
+            data: { ObsQuestions: this.questions, recordId:this.recordId, form:this.form },
         })
       })
       .catch(err=>{

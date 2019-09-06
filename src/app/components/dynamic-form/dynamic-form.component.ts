@@ -6,70 +6,37 @@ import { QuestionControlService }    from 'src/app/_services/question-control.se
 import { Observable } from 'rxjs';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { FormPass } from 'src/app/_services/form-pass.service';
+import { ModDataService } from 'src/app/_services/mod-data.service';
 
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  providers: [              QuestionControlService, FormPass
-  ]
+   providers: [ModDataService ]
 })
 export class DynamicFormComponent implements OnInit {
 
   questions: Promise <any> //{question: QuestionBase<any>, validators: ValidatorFn [] } []=  [];
-  initvalues ;
   error; 
   form: FormGroup;
-  payLoad = '';
-  formReady:boolean = false;
 
-  @Input() model ;
-  @Input() recordId;
+  model ;
+  recordId;
 
-  @ViewChild('dialog',{static: true}) callAPIDialog: TemplateRef<any>;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any ,private dialog:MatDialog, private fo:FormPass ) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any ,private dialog:MatDialog, private push:ModDataService ) {
     this.questions = data.ObsQuestions;
-    this.error = data.error;
+    
     this.form = data.form
-    // this.fo.form = this.form
-    // this.fo.questions = this.questions
-    // this.form = data.form;
-    // this.form = this.fo.form;
-    // this.questions = this.fo.questions;
-    console.log(this.form)
-    console.log(data.questions)
     
   }
 
   ngOnInit() {
-    // this.form = this.qcs.toFormGroup(data.questions);
-    console.log(this.form)
-   
-
-     // ngOnChanges(changes:SimpleChange){
-  //   for (let propName in changes ){
-  //     let changedProp = changes[propName];
-  //     if ('isAuthenticated' == propName){
-  //       this.isAuthenticatedChange.emit(changedProp.currentValue);
-  //     }
-  //   }
-
-  // }
-
-    // let $this = this
-    // this.questions
-    // .then(res=>{
-    //   $this.questions = Promise.resolve(res);
-    //   $this.formReady = true;
-    // }).catch(err=>{ObsQuestions
-    //   console.log(err)
-    // })
-        
+     
     
   }
 
   onSubmit() {
+    this.push.edit(this.form.value);
     
-    this.payLoad = JSON.stringify(this.form.value);
   }
 }

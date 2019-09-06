@@ -43,24 +43,7 @@ export class QuestionValidService{
             }).catch(err=>{
                 console.log(err);
             })
-         
-        //  subscribe({
-        //     next(x: ){
-               
-        //         }) 
-
-
-        //         quest = of(temp);
-        //     },
-        //     error(err){
-        //         console.log("WEIRD")
-        //         console.log(err);
-        //         quest = of(err);
-
-        //     }
-        // })
-
-        // return quest;
+      
        
         
         

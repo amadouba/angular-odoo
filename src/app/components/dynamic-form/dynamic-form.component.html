@@ -1,51 +1,19 @@
-<div #dialog>
+<div>
     <h2 mat-dialog-title>Form</h2>
     <ng-container *ngIf="!form">
       Loading ... form
     </ng-container> 
-        <form (ngSubmit)="onSubmit()" [formGroup]="data.form">
+        <form  (ngSubmit)="onSubmit()" [formGroup]="form">
             <mat-dialog-content>
-                <ng-container *ngIf="(data.ObsQuestions  | async) === null">
+                <ng-container *ngIf="(questions | async) === null">
                     Loading ...questions
                 </ng-container> 
 
                 <table class="example-full-width" cellspacing="0">
         
-                  <div *ngFor="let question of data.questions " class="form-row">
+                  <div *ngFor="let question of questions | async" class="form-row">
 
-                      <tr>
-                          <td>
-
-                                
-                                  
-                      
-                                  
-                                    <div [ngSwitch]="question.question.controlType">
-                      
-                                      <mat-form-field  *ngSwitchCase="'input'" appearance="outline">
-                                          <mat-label [attr.for]="question.question.key">{{question.question.label}}</mat-label>
-                      
-                                          <input matInput [formControlName]="question.question.key"
-                                              [id]="question.question.key" [type]="question.question.type">
-                                      </mat-form-field>
-                      
-                      
-                                      <mat-form-field  *ngSwitchCase="'select'" appearance="outline">
-                                          <mat-label [attr.for]="question.question.key">{{question.question.label}}</mat-label>
-                      
-                                          <mat-select    [id]="question.question.key" [formControlName]="question.question.key" [multiple]="question.question.type">
-                                            <mat-option *ngFor="let opt of question.question.options | async" [value]="opt.key">{{opt.value}}</mat-option>
-                                          </mat-select>
-                                      </mat-form-field>
-                                    </div> 
-                                    <!-- <mat-error *ngIf="!isValid">{{question.label}} is required</mat-error> -->
-                      
-                                   <!-- <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div> -->
-                                
-                      
-                            
-                        </td>
-                      </tr>
+                    <app-question  [question]="question.question" [form]="form"></app-question>
                   </div>
                 
          
@@ -59,11 +27,11 @@
 
           <mat-dialog-actions align="end" >
  
-              <mat-error  class="loginErr" *ngIf="error">{{!error.title ? error : error.title  }} : {{error.message}}</mat-error>
+              <mat-error  class="postError" >{{!error.title ? error : error.title  }} : {{error.message}} TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</mat-error>
               <button mat-flat-button mat-dialog-close>Cancel</button>
         
               <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-              <button mat-button [disabled]="form.valid" color="primary" type="submit">Save</button>
+              <button mat-button [disabled]="!form.valid" color="primary" type="submit">Save</button>
            
         
           </mat-dialog-actions>

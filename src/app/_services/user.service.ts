@@ -29,6 +29,7 @@ export class UserService implements OnInit{
                 localStorage.setItem("user", JSON.stringify(res));
                 localStorage.setItem("username",this.username);
 
+
                 return Promise.resolve();
                 
               }).catch( err => {
@@ -44,6 +45,7 @@ export class UserService implements OnInit{
       return this.username = localStorage.getItem('username');
     }
 
+   
     logout(){
       this.odooRPC.logout();
       this.loginState = false ;

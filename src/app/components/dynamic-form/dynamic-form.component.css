@@ -1,7 +1,4 @@
-.example-form{
-    /* display:flex; */
-    /* flex-direction:column; */
-}
+
 
 mat-dialog-actions {
     display:flex;
@@ -9,10 +6,8 @@ mat-dialog-actions {
     flex-wrap: nowrap;
 
   }
-input{
-  /* background-color: bisque; */
-}
-  .loginErr{
+
+  .postError{
     max-width: 400px;
     max-height: 5em;
 

@@ -17,19 +17,16 @@ function defaultErrorStateMatcher(control, form) {
 export class DynamicFormQuestionComponent implements OnInit {
   @Input() question: QuestionBase<any>;
   @Input() form: FormGroup;
-  constructor(private fo: FormPass){
-    this.form = this.fo.form 
+  constructor(){
     
-    console.log(this.form)
-    console.log(this.question)
+    
+    
   }
   ngOnInit(){
-    console.log(this.form)
-    console.log(this.question)
+    
   }
   get isValid() { 
-    console.log(this.form)
-    console.log(this.question)
+    
     return this.form.controls[this.question.key].valid; }
 
     
